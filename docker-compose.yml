@@ -1,0 +1,29 @@
+version: '3'
+services:
+  web:
+    build: .
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+    ports:
+      - "80:80"
+    links: # <- here
+      - postgres
+    networks:
+      - backend
+
+  postgres:
+    image: postgres:11.2-alpine
+    hostname: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - backend
+
+volumes:
+  pgdata:
+
+networks:
+  backend:
+    driver: bridge
