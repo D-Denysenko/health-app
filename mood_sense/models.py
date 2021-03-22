@@ -24,7 +24,7 @@ class Mood(models.Model):
         ('Very intense', 'Very intense'),
         ('Utterly horrible', 'Utterly horrible'),
         ('Excruciating unbearable', 'Excruciating unbearable'),
-        ('Unimaginable unspeakable', 'Unimaginable unspeakable')
+        ('change_one', 'change_two')
 
     )
     profile = models.ForeignKey(Profile, null=False, blank=False, on_delete=models.CASCADE, related_name='moods', default=1)
